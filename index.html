@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #a19d9dc4;
+    }
+
+    #signup-container {
+        text-align: center;
+    }
+
+    #form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin-top: 20px; /* Adjust as needed */
+    }
+    .form-control.success input{
+        border: 3px solid green;
+    }
+
+    .form-control.error input{
+        border: 3px solid red;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    #errorMessage{
+        text-align: left;
+        color: red;
+    }
+    
+</style>
+</head>
+<body>
+<div id="signup-container">
+    <h1>Create Account</h1>
+    <form id="form" action="#" method="POST">
+        <div class="form-control">
+        <input reuired type="text" id="username" name="username" placeholder="Username">
+        <div id="errorMessage" class="error-message"></div>
+        </div>
+       <div class="form-control">
+        <input type="email" id="email" name="email" placeholder="Email">
+        <div id="errorMessage" class="error-message"></div>
+       </div>
+       <div class="form-control">
+         <input  type="password" id="password" name="password" placeholder="Password">
+        <div id="errorMessage" class="error-message"></div>
+       </div>
+       <div class="form-control">
+         <input  type="password" id="password2" name="confirm_password" placeholder="Confirm Password">
+        <div id="errorMessage" class="error-message"></div>
+       </div>
+       <div class="form-control">
+         <input type="submit" value="Submit">
+        <div id="errorMessage" class="error-message"></div>
+       </div>
+       
+       
+       
+    </form>
+</div>
+
+
+<script src="./js/validate.js">
+    
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+    }
+
+    #signup-container {
+        text-align: center;
+    }
+
+    #signup-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin-top: 20px; /* Adjust as needed */
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    .error-message {
+        color: red;
+        margin-top: 5px;
+    }
+</style>
+</head>
+<body>
+<div id="signup-container">
+    <h1>Create Account</h1>
+    <form id="signup-form" action="#" method="POST" onsubmit="return validateForm()">
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
+        <input type="submit" value="Submit">
+        <div id="error-message" class="error-message"></div>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm-password").value;
+        var errorMessage = document.getElementById("error-message");
+
+        if (username.trim() === "" || email.trim() === "" || password.trim() === "" || confirmPassword.trim() === "") {
+            errorMessage.innerHTML = "All fields are required.";
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            errorMessage.innerHTML = "Passwords do not match.";
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html> -->
